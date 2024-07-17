@@ -1,0 +1,92 @@
+/* .detail-container {
+  padding: 10px;
+  display: inline;
+}
+
+.list-nurse {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin-bottom: 10px;
+  row-gap: 20px
+
+}
+
+.card-img,
+.card-img-bottom,
+.card-img-top {
+  width: 250px;
+  height: 230px;
+  
+}
+
+.card {
+  width: 18rem;
+}
+*/
+
+
+.contact-list_button{
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-title{
+   padding-left: 10px;
+}
+ 
+.card {
+  width: 18rem;
+  height: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+.card:hover {
+  transform: translateY(-10px); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
+
+.card-img_container {
+  width: 100%;
+  height: 15rem; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 2px solid #eee;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 100%; 
+  max-height: 100%;
+}
+
+.list-nurse {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 10px;
+  gap: 10px;
+  row-gap: 40px;
+  background-color: #EEF2F5;
+}
+
+
+
+
+
+
+
+
+

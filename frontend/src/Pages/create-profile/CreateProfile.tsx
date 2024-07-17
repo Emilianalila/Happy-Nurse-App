@@ -3,26 +3,27 @@ import NavLogout from "../../components/nav-logout/NavLogout";
 import createProfileImg from "../../assets/loginGroup.jpg";
 import { useNavigate } from "react-router-dom";
 import "./create-profile.css"
+import Nav from "../../components/nav/Nav";
 
 export type FormNurse = {
   name: string;
   lastName: string;
-  price: number;
+  price: number|null;
   email: string;
   rating: string;
   img: string;
   licenseNumber: string;
 };
 
-type addDevProp = {
+export type addNurseProp = {
   handleNewNurse: () => void;
 };
 
-const CreateProfile = ({ handleNewNurse }: addDevProp) => {
+const CreateProfile = ({ handleNewNurse }: addNurseProp) => {
   const [nurse, setNurse] = useState<FormNurse>({
     name: "",
     lastName: "",
-    price: 0,
+    price: null,
     email: "",
     rating: "",
     img: "",
@@ -55,7 +56,7 @@ const CreateProfile = ({ handleNewNurse }: addDevProp) => {
       const result = await response.json();
       console.log(result);
 
-      // handleNewNurse();
+      handleNewNurse();
       setMessage("User created successfully!🎉");
       //otro msj para decirle al usuario que va a ser redirigino a su nueva cart...
 
@@ -63,7 +64,7 @@ const CreateProfile = ({ handleNewNurse }: addDevProp) => {
         setNurse({
           name: "",
           lastName: "",
-          price: 0,
+          price: null,
           email: "",
           rating: "",
           img: "",
@@ -71,6 +72,7 @@ const CreateProfile = ({ handleNewNurse }: addDevProp) => {
         });
         setMessage("");
         navigate(`/NurseDetail/${result}`);
+        /* navigate(`/Login`); */
       }, 3000);
     } catch (err) {
       console.error(err, "could not fetch resource");
@@ -81,11 +83,11 @@ const CreateProfile = ({ handleNewNurse }: addDevProp) => {
 
   return (
     <>
-      <NavLogout />
+      <Nav/>
       <div className="main_container">
         <div className="content_container">
           <div className="form_container">
-            <h3>Create your Profile</h3>
+            <h6 className="profile-title">Create your Profile</h6>
             {message && <div className="message">{message}</div>}
             <form className="addDeveloperForm" onSubmit={handleSubmit}>
               <label>*Name</label>
@@ -113,6 +115,7 @@ const CreateProfile = ({ handleNewNurse }: addDevProp) => {
                 className="form__input-name"
                 value={nurse.licenseNumber}
                 type="text"
+                placeholder="NR00000"
                 required
               />
               <label>Price</label>
@@ -120,8 +123,9 @@ const CreateProfile = ({ handleNewNurse }: addDevProp) => {
                 name="price"
                 onChange={handleInputChange}
                 className="form__input-name"
-                value={nurse.price}
-                type="text"
+                value={nurse.price !== null ? nurse.price : ""}
+                type="number"
+                placeholder="Hourly"
               />
               <label>*Email</label>
               <input
@@ -130,6 +134,7 @@ const CreateProfile = ({ handleNewNurse }: addDevProp) => {
                 className="form__input-name"
                 value={nurse.email}
                 type="text"
+                placeholder="name@gmail.com"
                 required
               />
               <label>Rating</label>

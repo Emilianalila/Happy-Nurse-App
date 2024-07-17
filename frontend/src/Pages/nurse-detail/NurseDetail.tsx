@@ -2,13 +2,15 @@ import { useNavigate, useParams } from "react-router-dom";
 import NavLogout from "../../components/nav-logout/NavLogout";
 import { useEffect, useState } from "react";
 import { Nurse } from "../../App";
-import "./nurse-detail.css"
+import "./nurse-detail.css";
+import listImg from "../../assets/nurseImg2.jpg";
+import { addNurseProp } from "../create-profile/CreateProfile";
 
 type Params = {
   id: string;
 };
 
-const NurseDetail = () => {
+const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
   const { id } = useParams<Params>();
   const navigate = useNavigate();
   const [editMode, setEditMode] = useState(false);
@@ -58,6 +60,7 @@ const NurseDetail = () => {
     });
     if (response.ok) {
       setEditMode(false);
+      handleNewNurse();
       console.log("Changes saved successfully."); // cambiar por msjes q se vean en la pagina
     } else {
       console.log("Failed to save changes.");
@@ -79,7 +82,8 @@ const NurseDetail = () => {
       });
       if (response.ok) {
         console.log(`${nurseData.name} is deleted`);
-        navigate(-1);
+        handleNewNurse();
+        navigate("/HomeNurse");
       } else {
         console.log("Failed to delete profile.");
       }
@@ -88,7 +92,7 @@ const NurseDetail = () => {
 
   const handleBack = () => {
     setEditMode(false);
-     navigate(-1);
+    /*  navigate(-1); */
   };
 
   return (
@@ -260,6 +264,38 @@ const NurseDetail = () => {
               You can edit your price, email, rating, and license number. Make
               sure to save your changes before navigating away.
             </p>
+          </div>
+        </div>
+      </div>
+      <div className="main_container">
+        <div className="row_container">
+          <div className="info-container">
+            <h2 className="info-title">Preview Card Information</h2>
+            <p className="info-paragraph">
+              This card is a preview of what users will see when they search for
+              nurses.
+            </p>
+            <img src={listImg} alt="Small Preview" className="info-image" />
+            <p className="edit-profile">Edit your profile to keep it updated</p>
+          </div>
+          <div className="preview-container">
+            <div className="detail-container">
+              <ul className="list-nurse">
+                <div className="card">
+                  <img src={nurseData.img} className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      {nurseData.name} {nurseData.lastName}
+                    </h5>
+                    <p>⭐️⭐️⭐️ ({nurseData.rating})</p>
+                    <p className="card-text">
+                      Hourly rate: {nurseData.price} kr
+                    </p>
+                    <a className="btn btn-primary">Contact {nurseData.name}</a>
+                  </div>
+                </div>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

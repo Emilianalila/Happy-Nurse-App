@@ -20,9 +20,15 @@ const HomeNurse = () => {
           </p>
           <p>
             <a className="linkToLogin" href="/Login">
-              <button className="joinTeam-button">Click Here</button>
-            </a>{" "}
-            Join our team
+              <button className="joinTeam-button">Click Here </button>
+            </a>
+             , to Log in.
+          </p>
+          <p>
+            <a className="linkToLogin" href="/CreateProfile">
+              <button className="joinTeam-button">Create a Profile</button>
+            </a>
+            , to Join our team and be part of Happy Nurse.
           </p>
         </div>
       </section>
@@ -44,7 +50,7 @@ const HomeNurse = () => {
             </li>
             <li className="list-group-item middleItem">
               <button className="joinTeam-button">
-                ♥️ Become a Happy nurse
+                <a className="home-link" href="/CreateProfile" >♥️ Become a Happy nurse</a>
               </button>
             </li>
           </ul>

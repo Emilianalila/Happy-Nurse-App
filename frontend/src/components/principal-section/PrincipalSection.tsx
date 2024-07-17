@@ -8,7 +8,7 @@ const principalSection = () => {
         <br/>
         <h6>
         After registering on Happy Nurse, we will arrange a nurse for you.</h6>
-        <p><a className="linkToLogin" href="#">Click Here </a>to book a Nurse</p>
+        <p><a className="linkToLogin" href="/Login">Click Here </a>to login and choose a Nurse</p>
       </div>
     </section>
   );

@@ -14,15 +14,25 @@ public class Nurse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+
     private String lastName;
+
     private String email;
+
     private String phoneNumber;
+
     private String licenseNumber;
+
     private String gender;
+
     private String address;
+
     private int price;
+
     private String rating;
+
     private String img;
 
     public Nurse() {

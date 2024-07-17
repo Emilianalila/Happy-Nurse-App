@@ -23,18 +23,22 @@ const Login = () => {
       body: email
     }
     const response = await fetch("http://localhost:8080/api/login", options);
-    const data = await response.text();
+    const data = await response.json();
     console.log(data);
 
-    if (data === 'user') {
+    if (data.rol === 'user') {
       navigate('/ListOfNurse');
-    } else if (data === 'admin') {
-      navigate('/CreateProfile');
+    } else if (data.rol === 'admin') {
+      /* navigate('/CreateProfile'); */
+      navigate(`/NurseDetail/${data.id}`);
     } else {
-      alert('invalid email');
+      /* alert('invalid email'); */
+      alert('Email not found. You will be redirected to create a profile.');
+      navigate("/CreateProfile");
     }
-  } catch (error){
-    console.error("error", error)
+  } catch (e:any){
+    console.error("Error", e);
+   /*  alert(`Error: ${e.message || 'Something went wrong. Please try again later.'}`); */
   }
 }
   return (

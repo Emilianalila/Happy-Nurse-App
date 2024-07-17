@@ -1,6 +1,11 @@
 package com.example.HappyNurse.user;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @CrossOrigin
@@ -13,13 +18,18 @@ public class UserController {
     }
 
     @PostMapping
-    public String login(@RequestBody String email){
+    public ResponseEntity<?> login(@RequestBody String email){
         UserP foundUser = userService.findByEmail(email);
         System.out.println("foundUser = " + foundUser);
         if (foundUser != null){
-            return foundUser.getRole();
+            DtoUser userInfo = new DtoUser(foundUser.getRole(), foundUser.getId());
+            return new ResponseEntity<>(userInfo, HttpStatus.OK);
+
         }else{
-            return "Invalid";
+            Map<String, String> response = new HashMap<>();
+            response.put("message", "User ");
+            response.put("email", email);
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
     }
 }

@@ -12,6 +12,7 @@ import Login from "./Pages/login/Login";
 import CreateProfile from "./Pages/create-profile/CreateProfile";
 import ProfileDetails from "./Pages/nurse-detail/NurseDetail";
 import NurseDetail from "./Pages/nurse-detail/NurseDetail";
+import ContactNurse from "./Pages/contact-Nurse/ContactNurse";
 
 export type Nurse = {
   id: number;
@@ -65,11 +66,12 @@ function App() {
         />
         <Route
           path="CreateProfile"
-          element={<CreateProfile handleNewNurse={handleNewNurse} />}
+          element={<CreateProfile handleNewNurse={handleNewNurse}/>}
         />
-        <Route path="ProfileDetails" element={<ProfileDetails />} />
         <Route path="Login" element={<Login />} />
-        <Route path="NurseDetail/:id" element={<NurseDetail />} />
+        <Route path="NurseDetail/:id" element={<NurseDetail handleNewNurse={handleNewNurse}/>} />
+        <Route path="ContactNurse" element={<ContactNurse />} />
+
       </Routes>
       <Footer />
     </Router>

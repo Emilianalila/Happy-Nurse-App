@@ -1,3 +1,4 @@
+/* GLobal */
 body {
   font-family: "Arial", sans-serif;
   margin: 0;
@@ -5,6 +6,8 @@ body {
   background-color: #f4f4f9;
   color: #333;
 }
+
+
 /* PrincipalSection and middleSection */
 .section1-container {
   min-height: 100vh;
@@ -52,6 +55,7 @@ body {
   color: white;
 }
 
+/* Middle...................... */
 .middle-title1 {
   padding-top: 25px;
 }
@@ -77,6 +81,8 @@ body {
   margin-left: 30px;
 }
 
+
+/* Nav .....................*/
 /* .nav-border {
   --bs-btn-border-color: black; // no funciona
 }   */
@@ -88,8 +94,10 @@ body {
 .navbar {
   box-shadow: 0 4px 8px rgba(22, 22, 22, 0.1);
 }
-/* HomeNurse */
 
+
+
+/* HomeNurse ....................*/
 .section2-container {
   min-height: 100vh;
   background-image: url("./assets/ListOfNurses.webp");
@@ -116,21 +124,8 @@ body {
   border-radius: 5px;
 }
 
-.card {
+.home-link{
+  color: #050505;
+  text-decoration: none;
+}
 
-  width: 18rem;
-}
-.list-nurse{
-  display: flex;
-  align-items: center;
-justify-content: space-around;
-  flex-wrap: wrap;
-  padding-left: 0px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
-.detail-container {
-  padding: 40px;
-  display: inline;
-}
