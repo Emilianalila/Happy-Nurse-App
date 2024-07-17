@@ -1,0 +1,136 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+/* PrincipalSection and middleSection */
+.section1-container {
+  min-height: 100vh;
+  background-image: url("./assets/nurse_smiling1.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: left;
+  padding-left: 2rem;
+  margin-right: 1px;
+  margin-left: 0px;
+}
+
+.section1-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  text-align: left;
+  padding-left: 30px;
+}
+
+.loginButton {
+  --bs-btn-color: #0d0c0d;
+  --bs-btn-hover-color: #fbf9f9;
+  --bs-btn-hover-bg: #0d6efd;
+  --bs-btn-hover-border-color: #0e0e0e;
+  --bs-btn-focus-shadow-rgb: 25, 135, 84;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #f7fcfa;
+  --bs-btn-active-border-color: #050505;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.main-title {
+  font-size: 48px;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+.linkToLogin {
+  color: white;
+}
+
+.middle-title1 {
+  padding-top: 25px;
+}
+
+.middleP {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 14px;
+}
+
+.middleBackground {
+  background-color: rgb(243, 243, 236);
+}
+
+.middleItem {
+  --bs-list-group-item-padding-x: 13px;
+  --bs-list-group-item-padding-y: 13px;
+}
+
+.middle-button {
+  border-radius: 4px;
+  background-color: rgb(243, 243, 236);
+  margin: 15px;
+  margin-left: 30px;
+}
+
+/* .nav-border {
+  --bs-btn-border-color: black; // no funciona
+}   */
+
+.nav-pointer {
+  cursor: pointer;
+}
+
+.navbar {
+  box-shadow: 0 4px 8px rgba(22, 22, 22, 0.1);
+}
+/* HomeNurse */
+
+.section2-container {
+  min-height: 100vh;
+  background-image: url("./assets/ListOfNurses.webp");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: left;
+  padding-left: 2rem;
+  margin-right: 1px;
+  margin-left: 0px;
+  margin-bottom: 5px;
+}
+
+.home-nurse_container {
+  padding: 30px;
+  background-color: rgb(243, 243, 236);
+  margin-top: 20px;
+}
+
+.joinTeam-button {
+  border-radius: 5px;
+}
+
+.card {
+
+  width: 18rem;
+}
+.list-nurse{
+  display: flex;
+  align-items: center;
+justify-content: space-around;
+  flex-wrap: wrap;
+  padding-left: 0px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.detail-container {
+  padding: 40px;
+  display: inline;
+}

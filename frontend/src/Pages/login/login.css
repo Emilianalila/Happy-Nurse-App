@@ -1,0 +1,32 @@
+.loginContainer {
+  background: white;
+  width: 20em;
+  height: auto;
+  position: relative;
+  margin: auto;
+  padding: 2em;
+  border-radius: 1em;
+  color: black;
+  border: 1px solid black;
+  margin-top: 50px;
+}
+
+.login-title {
+  font-size: 2em;
+  font-weight: bold;
+  padding-bottom: 0.7em;
+  color: black;
+  text-align: center;
+}
+
+.login-form {
+  text-align: left;
+  text-align: center;
+
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+.login-form_imput {
+  margin-bottom: 20px;
+}

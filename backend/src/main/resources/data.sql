@@ -1,0 +1,17 @@
+DELETE FROM Nurse;
+
+INSERT INTO Nurse (name, last_name, email, phone_number, license_number, gender, address, price, rating, img) VALUES
+                                                                                                               ('John', 'Doe', 'john.doe@gmail.com', '555-1234', 'RN123456', 'Male', '123 Main St, Springfield, IL', 250, '4.5', 'https://i.pinimg.com/736x/7f/2b/61/7f2b6179c80e54d3046a4ec8b49a0e75.jpg'),
+                                                                                                               ('Jane', 'Smith', 'jane.smith@gmail.com', '555-5678', 'RN654321', 'Female', '456 Oak St, Springfield, IL', 260, '4.8', 'https://www.shutterstock.com/image-photo/positive-caucasian-millennial-lady-doctor-260nw-2414011699.jpg'),
+                                                                                                               ('Mary', 'Johnson', 'mary.johnson@gmail.com', '555-8765', 'RN987654', 'Female', '789 Pine St, Springfield, IL', 255, '4.6', 'https://www.creativefabrica.com/wp-content/uploads/2022/11/25/Handsome-Doctor-Smiling-In-Hospital-48428105-1.png'),
+                                                                                                               ('James', 'Williams', 'james.williams@gmail.com', '555-4321', 'RN456789', 'Male', '101 Maple St, Springfield, IL', 265, '4.7', 'https://www.shutterstock.com/image-photo/positive-caucasian-millennial-lady-doctor-260nw-2414011699.jpg'),
+                                                                                                               ('Patricia', 'Brown', 'patricia.brown@gmail.com', '555-6789', 'RN123789', 'Female', '202 Birch St, Springfield, IL', 270, '4.9', 'https://example.com/images/patricia_brown.jpg'),
+                                                                                                               ('Michael', 'Jones', 'michael.jones@gmail.com', '555-7890', 'RN789123', 'Male', '303 Cedar St, Springfield, IL', 245, '4.4', 'https://example.com/images/michael_jones.jpg'),
+                                                                                                               ('Linda', 'Garcia', 'linda.garcia@gmail.com', '555-8901', 'RN654987', 'Female', '404 Elm St, Springfield, IL', 250, '4.5', 'https://example.com/images/linda_garcia.jpg'),
+                                                                                                               ('Robert', 'Martinez', 'robert.martinez@gmail.com', '555-9012', 'RN321654', 'Male', '505 Ash St, Springfield, IL', 255, '4.6', 'https://example.com/images/robert_martinez.jpg'),
+                                                                                                               ('Elizabeth', 'Rodriguez', 'elizabeth.rodriguez@gmail.com', '555-0123', 'RN987321', 'Female', '606 Hickory St, Springfield, IL', 260, '4.7', 'https://example.com/images/elizabeth_rodriguez.jpg'),
+                                                                                                               ('David', 'Hernandez', 'david.hernandez@gmail.com', '555-1235', 'RN789654', 'Male', '707 Walnut St, Springfield, IL', 265, '4.8', 'https://example.com/images/david_hernandez.jpg');
+DELETE FROM UserP;
+INSERT INTO UserP (email, role) VALUES
+                                    ('emilianalila@gmail.com', 'admin'),
+                                    ('maria@gmail.com', 'user')

@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "lib": ["es2015"]
+  },
+  "include": ["vite.config.ts", "src/**/*"]
+}
+
