@@ -9,12 +9,35 @@ const Login = () => {
   };
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const [error, setError] = useState("");
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
+  };
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
   };
 
   const handleSubmit= async (e: React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault();
+    
+    if (!regexEmail.test(email)) {
+      setError("Invalid email format, correct format(name@gmail.com)❗️");
+      setTimeout(() => {
+        setError("");
+      }, 2000);
+      return;
+    }
+    if (password.length < 5) {
+      setError("Password must be at least 5 characters long.❗️");
+      setTimeout(() => {
+        setError("");
+      }, 2000);
+      return;
+    }
+
     try{  const options = {
       method: 'POST',
       headers: {
@@ -29,16 +52,13 @@ const Login = () => {
     if (data.rol === 'user') {
       navigate('/ListOfNurse');
     } else if (data.rol === 'admin') {
-      /* navigate('/CreateProfile'); */
       navigate(`/NurseDetail/${data.id}`);
     } else {
-      /* alert('invalid email'); */
       alert('Email not found. You will be redirected to create a profile.');
       navigate("/CreateProfile");
     }
   } catch (e:any){
     console.error("Error", e);
-   /*  alert(`Error: ${e.message || 'Something went wrong. Please try again later.'}`); */
   }
 }
   return (
@@ -73,8 +93,8 @@ const Login = () => {
       <div className="loginContainer">
         <div className="row">
           <h2 className="login-title">Login</h2>
+          {error && <div className="error-message custom-row">{error}</div>}
           <form className="login-form" onSubmit={handleSubmit}>
-            {/* <label>🔑 Username</label> */}
             <input
               onChange={handleInputChange}
               className="login-form_imput"
@@ -82,8 +102,8 @@ const Login = () => {
               value={email}
               type="text"
             />
-            {/* <label>🔒 Password</label> */}
             <input
+            onChange={handlePasswordChange}
               name="password"
               className="form__input"
               placeholder="🔒 Password"

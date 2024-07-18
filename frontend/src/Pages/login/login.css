@@ -8,7 +8,8 @@
   border-radius: 1em;
   color: black;
   border: 1px solid black;
-  margin-top: 50px;
+  margin-top: 60px;
+  margin-bottom: 23rem;
 }
 
 .login-title {
@@ -29,4 +30,20 @@
 
 .login-form_imput {
   margin-bottom: 20px;
+}
+
+.error-message {
+  color: rgb(245, 95, 95);
+  text-align: center;
+  border: solid 1px rgb(10, 9, 9);
+  border-radius: 3px;
+  margin-bottom: 7px;
+}
+/* .custom-row {
+  --bs-gutter-x: 0rem;
+} */
+
+.form__button{
+  border-radius: 4px;
+  margin-top: 3px;
 }

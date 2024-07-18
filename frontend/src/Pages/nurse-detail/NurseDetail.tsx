@@ -5,6 +5,7 @@ import { Nurse } from "../../App";
 import "./nurse-detail.css";
 import listImg from "../../assets/nurseImg2.jpg";
 import { addNurseProp } from "../create-profile/CreateProfile";
+import toast, { Toaster } from "react-hot-toast";
 
 type Params = {
   id: string;
@@ -28,6 +29,7 @@ const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
     img: "",
   });
   const [message, setMessage] = useState("");
+  const [alertMessage, setAlertMessage] = useState("");
 
   useEffect(() => {
     // Obtener los datos iniciales de la enfermera
@@ -44,7 +46,9 @@ const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
   }
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target;
     setNurseData({ ...nurseData, [name]: value });
@@ -60,8 +64,15 @@ const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
     });
     if (response.ok) {
       setEditMode(false);
+      
       handleNewNurse();
-      console.log("Changes saved successfully."); // cambiar por msjes q se vean en la pagina
+
+      setMessage("Changes saved successfully 🎉.");
+      // toast.success("Changes saved successfully 🎉")
+      
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
     } else {
       console.log("Failed to save changes.");
     }
@@ -81,9 +92,16 @@ const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
         method: "DELETE",
       });
       if (response.ok) {
-        console.log(`${nurseData.name} is deleted`);
+        setAlertMessage(
+          `This profile has been deleted successfully ♳.`
+        );
+        toast.success(`${nurseData.name}'s profile has been deleted successfully♳.`)
         handleNewNurse();
-        navigate("/HomeNurse");
+
+        setTimeout(() => {
+          setAlertMessage("");
+          navigate("/HomeNurse");
+        }, 2000);
       } else {
         console.log("Failed to delete profile.");
       }
@@ -92,7 +110,6 @@ const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
 
   const handleBack = () => {
     setEditMode(false);
-    /*  navigate(-1); */
   };
 
   return (
@@ -103,7 +120,7 @@ const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
           <div className="Profile_card">
             <div className="Profile-card_header">
               <button className="btn-secondary2" onClick={handleBack}>
-                Back
+                Back to view
               </button>
               <div>
                 {editMode ? (
@@ -128,6 +145,15 @@ const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
                 <h6 className="mt-1">
                   {nurseData.name} {nurseData.lastName}
                 </h6>
+                {alertMessage && (
+              <div
+                className="alert alert-danger d-flex align-items-center"
+                role="alert"
+              >
+                <div>{alertMessage}</div>
+              </div>
+            )}
+                {message && <div className="message">{message}</div>}
               </div>
               <div>
                 <label className="profile-form_label Profile_label">
@@ -165,7 +191,7 @@ const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
               </div>
               <div>
                 <label className="profile-form_label Profile_label">
-                  *Licence Number
+                  *License Number
                 </label>
                 {editMode ? (
                   <input
@@ -186,13 +212,23 @@ const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
                   Gender
                 </label>
                 {editMode ? (
-                  <input
-                    type="text"
+                  // <input
+                  //   type="text"
+                  //   name="gender"
+                  //   value={nurseData.gender}
+                  //   onChange={handleChange}
+                  //   className="form-control"
+                  // />
+                  <select
                     name="gender"
                     value={nurseData.gender}
                     onChange={handleChange}
                     className="form-control"
-                  />
+                  >
+                    <option value="" disabled></option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
                 ) : (
                   <p className="form-control-plaintext">{nurseData.gender}</p>
                 )}
@@ -227,10 +263,10 @@ const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
                     className="form-control"
                   />
                 ) : (
-                  <p className="form-control-plaintext">{nurseData.price}</p>
+                  <p className="form-control-plaintext">{nurseData.price} sek</p>
                 )}
               </div>
-              <div>
+              {/* { <div>
                 <label className="profile-form_label Profile_label">
                   Rating
                 </label>
@@ -245,13 +281,14 @@ const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
                 ) : (
                   <p className="form-control-plaintext">{nurseData.rating}</p>
                 )}
-              </div>
+              </div> } */}
             </div>
             <div className="card-footer">
               <a className="card-footer" onClick={handleDelete}>
                 Delete 🗑️
               </a>
             </div>
+            <Toaster position="top-center" reverseOrder={false} />
           </div>
         </div>
         <div className="column">
@@ -261,13 +298,13 @@ const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
               existing information.
             </h4>
             <p className="middlep">
-              You can edit your price, email, rating, and license number. Make
-              sure to save your changes before navigating away.
+              You can edit your price, email, phone number and more,
+              Make sure to save your changes before navigating away.
             </p>
           </div>
         </div>
       </div>
-      <div className="main_container">
+      <div className="main_container1">
         <div className="row_container">
           <div className="info-container">
             <h2 className="info-title">Preview Card Information</h2>
@@ -289,7 +326,7 @@ const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
                     </h5>
                     <p>⭐️⭐️⭐️ ({nurseData.rating})</p>
                     <p className="card-text">
-                      Hourly rate: {nurseData.price} kr
+                      Hourly rate: {nurseData.price} sek
                     </p>
                     <a className="btn btn-primary">Contact {nurseData.name}</a>
                   </div>

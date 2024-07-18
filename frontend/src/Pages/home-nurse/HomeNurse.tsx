@@ -11,24 +11,18 @@ const HomeNurse = () => {
           <br />
           <br />
           <br />
-          <h2 className="main-title">
+          <h2 className="main-title bold-text">
             Be your own Boss and Become a Happy Nurse.
           </h2>
           <br />
-          <p>
+          <p className="bold-text">
             If you are a professional nurse, register and find your next job
           </p>
-          <p>
-            <a className="linkToLogin" href="/Login">
-              <button className="joinTeam-button">Click Here </button>
-            </a>
-             , to Log in.
-          </p>
-          <p>
+          <p className="bold-text">
             <a className="linkToLogin" href="/CreateProfile">
               <button className="joinTeam-button">Create a Profile</button>
             </a>
-            , to Join our team and be part of Happy Nurse.
+             to Join our team and be part of Happy Nurse.
           </p>
         </div>
       </section>

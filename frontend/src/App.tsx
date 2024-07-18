@@ -68,6 +68,7 @@ function App() {
           path="CreateProfile"
           element={<CreateProfile handleNewNurse={handleNewNurse}/>}
         />
+        <Route path="ProfileDetails" element={<ProfileDetails handleNewNurse={handleNewNurse}/>} />
         <Route path="Login" element={<Login />} />
         <Route path="NurseDetail/:id" element={<NurseDetail handleNewNurse={handleNewNurse}/>} />
         <Route path="ContactNurse" element={<ContactNurse />} />

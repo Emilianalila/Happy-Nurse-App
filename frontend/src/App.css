@@ -7,7 +7,6 @@ body {
   color: #333;
 }
 
-
 /* PrincipalSection and middleSection */
 .section1-container {
   min-height: 100vh;
@@ -81,12 +80,6 @@ body {
   margin-left: 30px;
 }
 
-
-/* Nav .....................*/
-/* .nav-border {
-  --bs-btn-border-color: black; // no funciona
-}   */
-
 .nav-pointer {
   cursor: pointer;
 }
@@ -94,8 +87,6 @@ body {
 .navbar {
   box-shadow: 0 4px 8px rgba(22, 22, 22, 0.1);
 }
-
-
 
 /* HomeNurse ....................*/
 .section2-container {
@@ -124,8 +115,23 @@ body {
   border-radius: 5px;
 }
 
-.home-link{
+.home-link {
   color: #050505;
   text-decoration: none;
 }
 
+@media (max-width: 425px) {
+  .section1-container {
+    background-image: url("./assets/homeNurse.jpeg");
+  }
+
+  .form_container {
+    width: 95%;
+  }
+
+  .main-title {
+    font-size: 34px;
+    font-weight: 600;
+    padding-right: 8px;
+  }
+}

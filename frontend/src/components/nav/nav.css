@@ -1,0 +1,10 @@
+.navbar-nav .nav-item .nav-link.active {
+  color: rgb(11, 11, 11);
+  font-weight: 600;
+  box-shadow: 0 8px 16px rgba(113, 112, 112, 0.2);
+  border-radius: 4px;
+}
+.navbar-nav .nav-item .nav-link.show {
+  color: rgb(11, 11, 11);
+  font-weight: 600;
+}
