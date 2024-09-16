@@ -24,4 +24,5 @@ dist-ssr
 *.sw?
 
 .env
-.env.d.ts
+env.d.ts
+vite-env.d.ts
