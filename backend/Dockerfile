@@ -1,6 +1,9 @@
 FROM maven:3.8.8-eclipse-temurin-21-alpine AS build
 
+
 WORKDIR /app/backend
+# Agrega esto antes de la línea RUN mvn clean package -DskipTests para verificar el contenido del directorio
+RUN ls -la /app/backend
 
 COPY . .
 RUN mvn clean package -DskipTests
