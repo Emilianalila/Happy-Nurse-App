@@ -20,6 +20,8 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
+  const baseUrl = import.meta.env.VITE_APP_API_URL as string; 
+  
   const handleSubmit= async (e: React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault();
     
@@ -38,14 +40,16 @@ const Login = () => {
       return;
     }
 
-    try{  const options = {
+    try{  
+      const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: email
     }
-    const response = await fetch("http://localhost:8080/api/login", options);
+
+    const response = await fetch(`${baseUrl}/api/login`, options);
     const data = await response.json();
     console.log(data);
 

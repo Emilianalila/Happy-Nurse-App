@@ -28,11 +28,14 @@ export type Nurse = {
   img: string;
 };
 
+
 function App() {
   const [nursesData, setNursesData] = useState<Nurse[]>([]);
+  
+  const baseUrl = import.meta.env.VITE_APP_API_URL as string; 
 
   const getAllNurses = async () => {
-    const response = await fetch("http://localhost:8080/api/nurse");
+    const response = await fetch(`${baseUrl}/api/nurse`);
     const data = await response.json();
     setNursesData(data);
     console.log(data);

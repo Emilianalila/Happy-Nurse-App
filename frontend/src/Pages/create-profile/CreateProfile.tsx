@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import "./create-profile.css";
 import Nav from "../../components/nav/Nav";
 import toast, { Toaster } from "react-hot-toast";
-import Footer from "../../components/footer/Footer";
 
 export type FormNurse = {
   name: string;
@@ -44,7 +43,9 @@ const CreateProfile = ({ handleNewNurse }: addNurseProp) => {
     setNurse((preFormData) => ({ ...preFormData, [name]: value }));
   };
 
-  const baseUrl = "http://localhost:8080/api/nurse/create";
+  const localhostUrl = import.meta.env.VITE_APP_API_URL as string;
+  const baseUrl = (`${localhostUrl}/api/nurse/create`);
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 

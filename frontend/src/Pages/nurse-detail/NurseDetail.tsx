@@ -31,10 +31,12 @@ const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
   const [message, setMessage] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
 
+  const baseUrl = import.meta.env.VITE_APP_API_URL as string;
+
   useEffect(() => {
     // Obtener los datos iniciales de la enfermera
     const fetchNurseData = async () => {
-      const response = await fetch(`http://localhost:8080/api/nurse/${id}`);
+      const response = await fetch(`${baseUrl}/api/nurse/${id}`);
       const data = await response.json();
       setNurseData(data);
     };
@@ -55,7 +57,7 @@ const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
   };
 
   const handleSave = async () => {
-    const response = await fetch(`http://localhost:8080/api/nurse/edit/${id}`, {
+    const response = await fetch(`${baseUrl}/api/nurse/edit/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -76,7 +78,6 @@ const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
     } else {
       console.log("Failed to save changes.");
     }
-    //redirigir directamente desde aca
   };
 
   const handleEdit = () => {
@@ -88,7 +89,7 @@ const NurseDetail = ({ handleNewNurse }: addNurseProp) => {
       "Are you sure you want to delete this profile?"
     );
     if (confirmDelete) {
-      const response = await fetch(`http://localhost:8080/api/nurse/${id}`, {
+      const response = await fetch(`${baseUrl}/api/nurse/${id}`, {
         method: "DELETE",
       });
       if (response.ok) {
